@@ -15,14 +15,14 @@
         v-slot="{ hover }"
         open-delay="200"
         >
-        <v-card flat
+        <v-card
         :elevation="hover ? 16 : 2"
         :class="{ 'on-hover': hover }"
         class="mx-auto"
         >
             <v-responsive>
-              <v-img height="100px" width="75px">
-                <img src="" />
+              <v-img height="200px" width="400px">
+                <img src="https://cdn.vuetifyjs.com/images/parallax/material2.jpg" />
               </v-img>
             </v-responsive>
             <v-card-title>

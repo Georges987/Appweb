@@ -1,7 +1,7 @@
 <template>
   <div class="pa-10">
-    <v-form v-model="valid">
-      <v-container>
+    <v-form v-model="valid" ref="form">
+      <v-container class="white--text">
         <v-row>
           <v-col cols="12" md="4">
             <v-text-field
@@ -12,7 +12,6 @@
             >
             </v-text-field>
           </v-col>
-
           <v-col cols="12" md="4">
             <v-text-field
               v-model="lastname"
@@ -44,10 +43,9 @@
           <v-col cols="12" md="4">
             <template>
               <div class="text-center ma-2">
-                <v-btn dark @click="snackbar = true"> Submit your message </v-btn>
-                <v-snackbar v-model="snackbar" color="success">
+                <v-btn color="success" @click="reset, snackbar = true"> Submit your message </v-btn>
+                <v-snackbar v-model="snackbar" dark>
                   {{ text }}
-
                   <template v-slot:action="{ attrs }">
                     <v-btn text v-bind="attrs" @click="snackbar = false"> Close </v-btn>
                   </template>
@@ -65,7 +63,6 @@ export default {
   data: () => ({
     snackbar: false,
     text: `Submited successfully !!`,
-
     valid: false,
     firstname: "",
     lastname: "",
@@ -83,6 +80,11 @@ export default {
       (v) => !!v || "Message is required befor submit",
       (v) => v.length >= 40 || "Message must be more than 40 characters",
     ],
+    methods: {
+      reset () {
+          this.$refs.form.reset()
+      },
+    },
   }),
 };
 </script>

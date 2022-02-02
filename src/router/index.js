@@ -6,6 +6,7 @@ import Bestsellers from '../views/Bestsellers.vue'
 import Other from '../views/categorie/other.vue'
 import Tech from '../views/categorie/tech.vue'
 import Wear from '../views/categorie/wear.vue'
+import Categorie from '../views/categorie.vue'
 Vue.use(VueRouter)
 
 const routes = [
@@ -28,6 +29,11 @@ const routes = [
     path: '/categorie/other',
     name: 'Other',
     component: Other
+  },
+  {
+    path: '/categorie',
+    name: 'Categorie',
+    component: Categorie
   },
   {
     path: '/categorie/tech',
