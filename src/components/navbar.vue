@@ -10,6 +10,10 @@
         <span class="white--text darken-2 text-h5" xs6 md6 lg6> Clari </span>
       </template>
       <v-spacer> </v-spacer>
+      <v-autocomplete
+      width="100px"
+      >
+      </v-autocomplete>
       <template>
         <div class="text-center">
           <v-menu offset-y transition="slide-x-transition">
@@ -27,27 +31,12 @@
               </v-list-item>
             </v-list>
           </v-menu>
-          <v-menu offset-y transition="slide-x-transition">
-            <template v-slot:activator="{ on, attrs }">
-              <v-btn color="orange" depressed v-bind="attrs" v-on="on"> Categories </v-btn>
-            </template>
-            <v-list color="orange">
-              <v-list-item v-for="link in categories" :key="link.name" router :to="link.road">
-                <v-icon left>
-                  {{link.icon}}
-                </v-icon>
-                <v-list-item-title>
-                  {{ link.name }}
-                </v-list-item-title>
-              </v-list-item>
-            </v-list>
-          </v-menu>
         </div>
       </template>
     </v-app-bar>
     <v-navigation-drawer v-model="drawer" app class="orange">
       <v-list class="">
-        <v-list-item v-for="cat in items" :key="cat.id" router :to="cat.road">
+        <v-list-item v-for="cat in items" :key="cat.id" router :to="cat.road" class="small">
             <v-list-item-action>
               <v-icon left class="white--text">{{ cat.icon }}</v-icon>
             </v-list-item-action>
@@ -68,7 +57,7 @@ export default {
         {
           name: 'Home',
           road: "/",
-          icon: "mdi-home"
+          icon: "mdi-cog"
         },
         {
           name: 'Bestsellers',
@@ -84,12 +73,20 @@ export default {
           name: 'Categories',
           road: "/categorie",
           icon: "mdi-store-outline"
-        }
-      ],
-      categories: [
-            { id: 1, name: 'Tech', road : "/categorie/tech", icon: "mdi-laptop"},
-            { id: 2, name: 'Wear', road : "/categorie/wear", icon: "mdi-cart" },
-            { id: 3, name: 'Other', road : "/categorie/other", icon: "mdi-star" },
+        },
+        { name: 'Tech', 
+          road : "/categorie/tech", 
+          icon: "mdi-laptop"
+        },
+        { name: 'Wear', 
+          road : "/categorie/wear",
+          icon: "mdi-cart" 
+        },
+        { 
+          name: 'Other', 
+          road : "/categorie/other", 
+          icon: "mdi-star" 
+        },
       ],
     };
   },

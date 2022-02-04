@@ -6,7 +6,7 @@
       </span>
     </v-sheet>
     <template>
-      <v-carousel cycle show-arrows-on-hover height="250px" width="100%">
+      <v-carousel cycle show-arrows-on-hover height="400px" width="100%">
         <v-carousel-item
           v-for="(item,i) in items"
           :key="i"

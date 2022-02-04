@@ -49,11 +49,9 @@
   </div>
 </template>
 <script>
-import Descript from '@/components/Descript.vue'
 export default {
   data() {
     return {
-      components: {Descript},
       dialog: false,
       products: [
         {
